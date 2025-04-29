@@ -1,6 +1,6 @@
 ﻿using MimeKit;
 
-namespace SunBattery_Api.Models.EmailModels
+namespace SunBattery_Api.Models.EmailSenderModels
 {
     public class Message
     {

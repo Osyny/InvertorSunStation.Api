@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SunBattery_Api.Models.EmailModels
+namespace SunBattery_Api.Models.EmailSenderModels
 {
     public class EmailConfiguration
     {

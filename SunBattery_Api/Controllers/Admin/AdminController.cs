@@ -1,18 +1,20 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SunBattery.Core.Entities;
 using SunBattery_Api.Services.Commands;
 
-namespace SunBattery_Api.Controllers.Command
+namespace SunBattery_Api.Controllers.Admin
 {
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
-    public class CommandController : ControllerBase
+    public class AdminController : ControllerBase
     {
         private readonly IParseCommand _parseCommand;
         private readonly ApplicationDbContext _dbContext;
 
-        public CommandController(IParseCommand parseCommand,
+        public AdminController(IParseCommand parseCommand,
             ApplicationDbContext dbContext)
         {
             _parseCommand = parseCommand;
