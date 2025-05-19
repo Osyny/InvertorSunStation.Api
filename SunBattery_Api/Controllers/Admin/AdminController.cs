@@ -8,7 +8,7 @@ namespace SunBattery_Api.Controllers.Admin
 {
     [Authorize]
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class AdminController : ControllerBase
     {
         private readonly IParseCommand _parseCommand;
