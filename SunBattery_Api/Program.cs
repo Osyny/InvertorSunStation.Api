@@ -23,6 +23,19 @@ namespace SunBattery_Api
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            //// The location that uploaded files will be stored
+            //// This ideally should be stored as a setting
+            //const string fileStoreLocation = "/Users/rad/Projects/Temp/Conrad/Uploaded";
+
+            //// Create the location, if it doesn't exist
+            //string rootDir = Directory.GetCurrentDirectory();
+            //if (!Directory.Exists(fileStoreLocation))
+            //    Directory.CreateDirectory(fileStoreLocation);
+
+            //// Allowed file extensions
+            //string[] allowedFileExtensions = [".jpg", ".jpeg", ".png", ".gif", ".pdf", ".docx", ".xlsx"];
+
+
             var configuration = builder.Configuration;
 
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -108,6 +121,7 @@ namespace SunBattery_Api
 
 
             var corsOrigins = configuration["App:CorsOrigins"] == null ? "http://localhost:4200" : configuration["App:CorsOrigins"];
+            
             builder.Services.AddCors(
                 options => options.AddPolicy(
                     "Default Policy",
@@ -140,6 +154,7 @@ namespace SunBattery_Api
 
             app.UseHttpsRedirection();
 
+            app.UseCors("Default Policy");
             app.UseRouting();
 
             app.UseAuthentication();

@@ -95,6 +95,11 @@ namespace SunBattery_Api.Controllers
             return NoContent();
         }
 
+        [HttpGet("employees")]
+        public IEnumerable<string> Get()
+        {
+            return new List<string> { "employee1", "employee2", "employee3" };
+        }
         [AllowAnonymous]
         [HttpGet("confirmEmail")]
         public async Task<IActionResult> ConfirmEmail(string token, string email)
