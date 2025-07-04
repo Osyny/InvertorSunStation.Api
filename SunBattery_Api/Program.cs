@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Quartz;
+using Station.AutoMapper;
 using SunBattery.Core.Entities;
 
 using SunBattery_Api.Models.EmailSenderModels;
@@ -22,18 +23,6 @@ namespace SunBattery_Api
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-
-            //// The location that uploaded files will be stored
-            //// This ideally should be stored as a setting
-            //const string fileStoreLocation = "/Users/rad/Projects/Temp/Conrad/Uploaded";
-
-            //// Create the location, if it doesn't exist
-            //string rootDir = Directory.GetCurrentDirectory();
-            //if (!Directory.Exists(fileStoreLocation))
-            //    Directory.CreateDirectory(fileStoreLocation);
-
-            //// Allowed file extensions
-            //string[] allowedFileExtensions = [".jpg", ".jpeg", ".png", ".gif", ".pdf", ".docx", ".xlsx"];
 
 
             var configuration = builder.Configuration;
@@ -140,6 +129,7 @@ namespace SunBattery_Api
                 ));
 
             builder.Services.AddSignalR();
+            builder.Services.AddAutoMapper(typeof(MappingProfile));
 
 
             var app = builder.Build();

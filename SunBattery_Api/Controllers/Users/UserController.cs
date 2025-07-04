@@ -3,10 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Org.BouncyCastle.Crypto;
-using SunBattery.Core.Entities;
-using System.Data;
-using SunBattery.Core.Extentions;
+
 using SunBattery.Core.Helpers.SelectList;
 
 namespace SunBattery_Api.Controllers.Users
