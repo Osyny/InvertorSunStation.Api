@@ -33,10 +33,6 @@ namespace SunBattery_Api.Controllers.Admin
 
         }
 
-        [HttpGet("protocol-datas")]
-        public async Task<List<ProtocolData>> GetAsync()
-        {
-            return await _dbContext.ProtocolDatas.AsNoTracking().ToListAsync();
-        }
+     
     }
 }

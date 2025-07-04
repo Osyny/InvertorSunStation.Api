@@ -194,8 +194,9 @@ namespace SunBattery_Api.Services.UserManagements
             var token = new JwtSecurityToken(
                 issuer: _configuration["JWT:ValidIssuer"],
                 audience: _configuration["JWT:ValidAudience"],
-                expires: expirationTimeInLocalTimeZone,
-                claims: authClaims,
+                 //expires: expirationTimeInLocalTimeZone,
+                 expires: DateTime.UtcNow.AddHours(6),
+            claims: authClaims,
                 signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)
                 );
 
