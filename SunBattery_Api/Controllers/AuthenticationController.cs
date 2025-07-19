@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using SunBattery.Core.Entities;
+using SunBattery_Api.Helpers;
 using SunBattery_Api.Models;
 using SunBattery_Api.Models.Authentification.Login;
 using SunBattery_Api.Models.Authentification.SignUp;
@@ -47,9 +48,9 @@ namespace SunBattery_Api.Controllers
                     new { tokenResponse.Response.Token, email = registerUser.Email }, Request.Scheme);
 
                 //var confirmationLink = $"http://localhost:4200/confirm-account?Token={HttpUtility.UrlEncode(tokenResponse.Response.Token)}&email={HttpUtility.UrlEncode(registerUser.Email)}";
-
-                var message = new Message(new string[] { registerUser.Email! }, "Confirmation email link", confirmationLink!);
-                var responseMsg = _emailService.SendEmail(message);
+                var message = EmailTemplateHelper.GetEmailVerificationTemplate(confirmationLink, registerUser.FirstName, registerUser.Password);
+                var sendMessage = new Message(new string[] { registerUser.Email! }, "Confirmation email link", message!);
+                var responseMsg = _emailService.SendEmail(sendMessage);
                 return StatusCode(StatusCodes.Status200OK,
                         new Response { IsSuccess = true, Message = $"{tokenResponse.Message} {responseMsg}" });
             }

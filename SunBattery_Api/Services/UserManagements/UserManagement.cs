@@ -228,6 +228,12 @@ namespace SunBattery_Api.Services.UserManagements
 
         }
 
+        public async Task<IList<string>> GerUserRoleAsync(ApplicationUser user)
+        {
+            var userRoles = await _userManager.GetRolesAsync(user);
+            return userRoles;
+        }
+
 
         #endregion
     }

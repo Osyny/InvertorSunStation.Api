@@ -3,6 +3,7 @@ using AutoMapper;
 using SunBattery.Core.Entities;
 using SunBattery_Api.Models.Dtos;
 using SunBattery_Api.Models.Dtos.ProtocolData;
+using SunBattery_Api.Models.Dtos.Users;
 
 namespace Station.AutoMapper
 {
@@ -10,7 +11,7 @@ namespace Station.AutoMapper
     {
         public MappingProfile()
         {
-            CreateMap<ApplicationUser, ApplicationUserDto>().ReverseMap();
+            CreateMap<ApplicationUser, UserDto>().ReverseMap();
             CreateMap<ProtocolData, ProtocolDataDto>().ReverseMap();
 
            
