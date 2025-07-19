@@ -21,5 +21,7 @@ namespace SunBattery_Api.Services.UserManagements
         Task<ApiResponse<LoginResponse>> GetJwtTokenAsync(ApplicationUser user);
       //  Task<ApiResponse<LoginResponse>> LoginUser2FactorSignInWithJWTokenAsync(string otp, string userName);
         Task<ApiResponse<LoginResponse>> RenewAccessTokenAsync(LoginResponse tokens);
+
+        Task<IList<string>> GerUserRoleAsync(ApplicationUser user);
     }
 }
